@@ -1,15 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { WEEKLY_SCHEDULE } from 'src/data/schedule';
-import { CreateScheduleDto } from './dto/create-schedule.dto';
-import { UpdateScheduleDto } from './dto/update-schedule.dto';
+import { setTimeout } from 'timers/promises';
 
 @Injectable()
 export class SchedulesService {
-  create(createScheduleDto: CreateScheduleDto) {
+  create() {
     return 'This action adds a new schedule';
   }
 
-  findAll() {
+  async findAll() {
+    await setTimeout(3000);
     return WEEKLY_SCHEDULE;
   }
 
@@ -21,8 +21,8 @@ export class SchedulesService {
     return result;
   }
 
-  update(id: number, updateScheduleDto: UpdateScheduleDto) {
-    return `This action updates a #${id} schedule`;
+  update() {
+    return `This action updates schedules`;
   }
 
   remove(id: number) {
